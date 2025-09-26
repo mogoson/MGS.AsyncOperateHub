@@ -1,0 +1,26 @@
+{
+    "name": "com.mgs.asyncoperatehub",
+    "version": "1.0.0",
+    "displayName": "Async Operate Hub",
+    "description": "Hub to manage operate, notify status and wait done.",
+    "unity": "2021.3",
+    "keywords": [
+        "async",
+        "hub",
+        "manage",
+        "operate",
+        "status"
+    ],
+    "author": {
+        "name": "Mogoson",
+        "email": "mogoson@outlook.com",
+        "url": "https://github.com/mogoson"
+    },
+    "samples": [
+        {
+            "displayName": "Sample",
+            "description": "Sample for Hub to manage operate, notify status and wait done.",
+            "path": "Samples~/Sample"
+        }
+    ]
+}
