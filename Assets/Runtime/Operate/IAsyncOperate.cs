@@ -23,8 +23,6 @@ namespace MGS.Operate
 
         Exception Error { get; }
 
-        void Execute();
-
         void ExecuteAsync();
 
         IEnumerator WaitDone();
@@ -34,7 +32,7 @@ namespace MGS.Operate
 
     public interface IAsyncOperate<T> : IAsyncOperate
     {
-        event Action<float> OnProgressChanged;
+        event Action<float> OnProgressed;
         event Action<T, Exception> OnCompleted;
 
         T Result { get; }

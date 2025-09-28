@@ -18,7 +18,7 @@ namespace MGS.Operate
 {
     public abstract class AsyncOperate<T> : IAsyncOperate<T>
     {
-        public event Action<float> OnProgressChanged;
+        public event Action<float> OnProgressed;
         public event Action<T, Exception> OnCompleted;
 
         public T Result { protected set; get; }
@@ -31,23 +31,7 @@ namespace MGS.Operate
 
         protected Thread thread;
 
-        public void Execute()
-        {
-            try
-            {
-                Result = OnExecute();
-            }
-            catch (Exception ex)
-            {
-                Error = ex;
-            }
-            finally
-            {
-                OnFinally();
-            }
-        }
-
-        public void ExecuteAsync()
+        public virtual void ExecuteAsync()
         {
             if (thread == null)
             {
@@ -73,7 +57,7 @@ namespace MGS.Operate
             }
         }
 
-        public IEnumerator WaitDone()
+        public virtual IEnumerator WaitDone()
         {
             var progress = 0f;
             while (!IsDone)
@@ -81,14 +65,14 @@ namespace MGS.Operate
                 if (progress != Progress)
                 {
                     progress = Progress;
-                    InvokeOnProgressChanged(Progress);
+                    InvokeOnProgressed(Progress);
                 }
                 yield return null;
             }
             InvokeOnCompleted(Result, Error);
         }
 
-        public void AbortAsync()
+        public virtual void AbortAsync()
         {
             if (thread != null)
             {
@@ -117,9 +101,9 @@ namespace MGS.Operate
             IsDone = true;
         }
 
-        protected void InvokeOnProgressChanged(float progress)
+        protected void InvokeOnProgressed(float progress)
         {
-            OnProgressChanged?.Invoke(progress);
+            OnProgressed?.Invoke(progress);
         }
 
         protected void InvokeOnCompleted(T result, Exception error)
