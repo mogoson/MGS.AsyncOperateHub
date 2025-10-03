@@ -1,5 +1,18 @@
 {
   "dependencies": {
+    "com.mgs.asynccruiser": {
+      "version": "https://github.com/mogoson/MGS.AsyncCruiser.git?path=/Assets",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c83ad9e8034ba610931b071d604bcf48d00b453c"
+    },
+    "com.mgs.monoagent": {
+      "version": "file:D:/Programmer/Github/MGS.MonoAgent/Assets",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.mgs.scriptdiemaker": {
       "version": "https://github.com/mogoson/MGS.ScriptDiemaker.git?path=/Assets",
       "depth": 0,

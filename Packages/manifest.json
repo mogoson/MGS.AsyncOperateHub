@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.mgs.asynccruiser": "https://github.com/mogoson/MGS.AsyncCruiser.git?path=/Assets",
+    "com.mgs.monoagent": "file:D:/Programmer/Github/MGS.MonoAgent/Assets",
     "com.mgs.scriptdiemaker": "https://github.com/mogoson/MGS.ScriptDiemaker.git?path=/Assets",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.feature.development": "1.0.1",

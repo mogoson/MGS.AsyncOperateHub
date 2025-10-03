@@ -54,7 +54,7 @@ namespace MGS.Operate
         {
             if (cruiser == null)
             {
-                cruiser = behaviour.StartCoroutine(StartCruiser());
+                cruiser = Mono.StartCoroutine(StartCruiser());
             }
         }
 
@@ -62,7 +62,7 @@ namespace MGS.Operate
         {
             if (cruiser != null)
             {
-                behaviour.StopCoroutine(cruiser);
+                Mono.StopCoroutine(cruiser);
                 cruiser = null;
             }
         }
@@ -138,7 +138,7 @@ namespace MGS.Operate
                 waitings.RemoveAt(0);
 
                 operate.ExecuteAsync();
-                var waitDone = behaviour.StartCoroutine(operate.WaitDone());
+                var waitDone = Mono.StartCoroutine(operate.WaitDone());
                 workings.Add(operate, waitDone);
             }
         }

@@ -11,23 +11,15 @@
  *************************************************************************/
 
 using System.Collections.Generic;
+using MGS.Agent;
 using UnityEngine;
 
 namespace MGS.Operate
 {
-    public class AsyncOperateHub : IAsyncOperateHub
+    public class AsyncOperateHub : MonoAgent, IAsyncOperateHub
     {
-        protected class OperateHubBehaviour : MonoBehaviour { }
-        protected OperateHubBehaviour behaviour;
-
         public int Workings { get { return workings.Count; } }
         protected IDictionary<IAsyncOperate, Coroutine> workings = new Dictionary<IAsyncOperate, Coroutine>();
-
-        public AsyncOperateHub()
-        {
-            behaviour = new GameObject(nameof(OperateHubBehaviour)).AddComponent<OperateHubBehaviour>();
-            Object.DontDestroyOnLoad(behaviour.gameObject);
-        }
 
         public virtual IAsyncOperate<T> Enqueue<T>(IAsyncOperate<T> operate)
         {
@@ -35,7 +27,7 @@ namespace MGS.Operate
             {
                 operate.OnCompleted += (result, error) => workings.Remove(operate);
                 operate.ExecuteAsync();
-                var waitDone = behaviour.StartCoroutine(operate.WaitDone());
+                var waitDone = Mono.StartCoroutine(operate.WaitDone());
                 workings.Add(operate, waitDone);
             }
             return operate;
@@ -46,7 +38,7 @@ namespace MGS.Operate
             if (workings.ContainsKey(operate))
             {
                 operate.AbortAsync();
-                behaviour.StopCoroutine(workings[operate]);
+                Mono.StopCoroutine(workings[operate]);
                 workings.Remove(operate);
             }
         }
@@ -56,18 +48,16 @@ namespace MGS.Operate
             foreach (var operate in workings)
             {
                 operate.Key.AbortAsync();
-                behaviour.StopCoroutine(operate.Value);
+                Mono.StopCoroutine(operate.Value);
             }
             workings.Clear();
         }
 
-        public virtual void Dispose()
+        public override void Dispose()
         {
+            base.Dispose();
             Clear();
             workings = null;
-
-            Object.Destroy(behaviour.gameObject);
-            behaviour = null;
         }
     }
 }

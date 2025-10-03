@@ -10,6 +10,8 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
+using MGS.AsyncCruiser;
+
 namespace MGS.Operate
 {
     public interface IAsyncOperateHubPro : IAsyncOperateHub, IAsyncCruiser
