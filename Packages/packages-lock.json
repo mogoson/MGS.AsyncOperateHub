@@ -8,10 +8,11 @@
       "hash": "c83ad9e8034ba610931b071d604bcf48d00b453c"
     },
     "com.mgs.monoagent": {
-      "version": "file:D:/Programmer/Github/MGS.MonoAgent/Assets",
+      "version": "https://github.com/mogoson/MGS.MonoAgent.git?path=/Assets",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "6038d1eba47fdea5eaeead386ecf5aca01d4f16a"
     },
     "com.mgs.scriptdiemaker": {
       "version": "https://github.com/mogoson/MGS.ScriptDiemaker.git?path=/Assets",
