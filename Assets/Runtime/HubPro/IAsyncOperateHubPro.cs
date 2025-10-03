@@ -10,7 +10,7 @@
  *  Description  :  Initial development version.
  *************************************************************************/
 
-using MGS.AsyncCruiser;
+using MGS.Cruiser;
 
 namespace MGS.Operate
 {

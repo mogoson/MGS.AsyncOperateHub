@@ -5,7 +5,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "c83ad9e8034ba610931b071d604bcf48d00b453c"
+      "hash": "4f13db86afb5a2f4126683b2c6073094db40a6b8"
     },
     "com.mgs.monoagent": {
       "version": "https://github.com/mogoson/MGS.MonoAgent.git?path=/Assets",
