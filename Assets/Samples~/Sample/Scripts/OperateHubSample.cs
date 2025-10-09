@@ -50,11 +50,11 @@ namespace MGS.Operate.Sample
             var operateHub = new AsyncOperateHub();
 
             var operateA = operateHub.Enqueue(new OperateA());
-            operateA.OnProgressChanged += progress => Debug.Log($"operateA progress:{progress}");
+            operateA.OnProgressed += progress => Debug.Log($"operateA progress:{progress}");
             operateA.OnCompleted += (result, error) => Debug.Log($"operateA result:{result}");
 
             var operateB = operateHub.Enqueue(new OperateB());
-            operateB.OnProgressChanged += progress => Debug.Log($"operateB progress:{progress}");
+            operateB.OnProgressed += progress => Debug.Log($"operateB progress:{progress}");
             operateB.OnCompleted += (result, error) => Debug.Log($"operateB result:{result}");
         }
     }
