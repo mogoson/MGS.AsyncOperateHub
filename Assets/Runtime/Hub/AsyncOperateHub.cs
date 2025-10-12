@@ -27,7 +27,7 @@ namespace MGS.Operate
             {
                 operate.OnCompleted += (result, error) => workings.Remove(operate);
                 operate.ExecuteAsync();
-                var waitDone = Mono.StartCoroutine(operate.WaitDone());
+                var waitDone = StartCoroutine(operate.WaitDone());
                 workings.Add(operate, waitDone);
             }
             return operate;
@@ -38,7 +38,7 @@ namespace MGS.Operate
             if (workings.ContainsKey(operate))
             {
                 operate.AbortAsync();
-                Mono.StopCoroutine(workings[operate]);
+                StopCoroutine(workings[operate]);
                 workings.Remove(operate);
             }
         }
@@ -48,7 +48,7 @@ namespace MGS.Operate
             foreach (var operate in workings)
             {
                 operate.Key.AbortAsync();
-                Mono.StopCoroutine(operate.Value);
+                StopCoroutine(operate.Value);
             }
             workings.Clear();
         }
