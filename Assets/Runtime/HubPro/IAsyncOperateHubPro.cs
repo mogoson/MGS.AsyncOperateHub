@@ -12,7 +12,7 @@
 
 namespace MGS.Operate
 {
-    public interface IAsyncOperateHubPro : IAsyncOperateHub, IAsyncCruiser
+    public interface IAsyncOperateHubPro : IAsyncOperateHub, ICruiser
     {
         int Concurrency { set; get; }
 

@@ -1,7 +1,7 @@
 /*************************************************************************
  *  Copyright © 2025 Mogoson All rights reserved.
  *------------------------------------------------------------------------
- *  File         :  IAsyncCruiser.cs
+ *  File         :  ICruiser.cs
  *  Description  :  Default.
  *------------------------------------------------------------------------
  *  Author       :  Mogoson
@@ -14,7 +14,7 @@ using System;
 
 namespace MGS.Operate
 {
-    public interface IAsyncCruiser : IDisposable
+    public interface ICruiser : IDisposable
     {
         /// <summary>
         /// Cruiser is active?
