@@ -5,14 +5,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "7e186760c5c85218c0f8ec203b8e4fe42d0ab7fc"
+      "hash": "73f89f6151494832ee372ab0e763098f911add8f"
     },
     "com.mgs.scriptdiemaker": {
       "version": "https://github.com/mogoson/MGS.ScriptDiemaker.git?path=/Assets",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d4fb6419af3c48ac208b765a37b89b6fd0d518af"
+      "hash": "2f5d3dc6a1277f29dbf2df9ee3c76466fa73133f"
     },
     "com.unity.collab-proxy": {
       "version": "2.3.1",
